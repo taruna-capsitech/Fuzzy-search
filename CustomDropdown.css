@@ -1,0 +1,23 @@
+.custom-dropdown {
+    position: relative;
+  }
+  
+  .custom-dropdown select {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    width: 100%;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-image: url('data:image/svg+xml;utf8,<svg fill="%23000000" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path d="M7 10l5 5 5-5H7z"/><path d="M0 0h24v24H0z" fill="none"/></svg>');
+    background-repeat: no-repeat;
+    background-position: right 8px center;
+  }
+  
+  .custom-dropdown select:focus {
+    outline: none;
+    border-color: #0078d4; /* Fluent UI primary color */
+  }
+  
