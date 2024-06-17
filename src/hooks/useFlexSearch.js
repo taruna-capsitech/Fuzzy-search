@@ -35,7 +35,21 @@ const useFlexSearch = ({initialOptions, limit}) => {
 
   const onSearch = useCallback((e) => setQuery(e !== "" ? e : "a"), []);
 
-  const flexResult = result?.sort((a, b) => a?.id - b?.id) || [];
+  const flexResult = useMemo(() => {
+    if (result.length === 0) return [];
+
+    let groupedResult = result?.reduce((acc, {id, doc}) => {
+      let grouplabel = doc?.group;
+      if(!acc[grouplabel]) acc[grouplabel] = [];
+      acc[grouplabel]?.push({ value: id, label: doc.name, synonyms: doc?.synonyms && doc?.synonyms?.length > 0 ? doc?.synonyms[0] : '' });
+      return acc;
+    }, {});
+
+    return Object.keys(groupedResult)?.map(group => ({
+      label: group,
+      options: groupedResult[group]
+    }));
+  }, [result]);
 
   return {
     flexResult,
