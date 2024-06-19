@@ -3,7 +3,7 @@ import useFlexSearch from "../hooks/useFlexSearch";
 import Select from 'react-select'
 
 export const ReactSelectDropDown = ({options}) => {
-    const [ inputValue, setInputValue ] = useState('sales'); 
+    const [ inputValue, setInputValue ] = useState(''); 
     const { onSearch, flexResult } = useFlexSearch({ initialOptions: options, limit: 1800 });
     const [list, setList] = useState();
 
@@ -15,6 +15,7 @@ export const ReactSelectDropDown = ({options}) => {
 
     return(
         <Select 
+          styles={{groupHeading: (p) => ({...p, color: '#0078d4', fontWeight: 'bold'})}}
           inputValue={inputValue} 
           options={list} 
           placeholder='Search...' 

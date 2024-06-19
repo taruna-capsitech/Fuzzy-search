@@ -1,5 +1,6 @@
 import React from "react";
-import accounts from './assets/accountDB.json';
+// import accounts from './assets/accountDB.json';
+import newAccountDB from './assets/newAccountDB.json';
 import { ReactSelectDropDown } from "./Components/ReactSelectDropDown";
 
 export default function App() { 
@@ -24,7 +25,7 @@ export default function App() {
           }}
         >
           <label>Flex search</label>
-          <ReactSelectDropDown options={accounts}/>
+          <ReactSelectDropDown options={newAccountDB}/>
         </div>
 
         {/* <div
